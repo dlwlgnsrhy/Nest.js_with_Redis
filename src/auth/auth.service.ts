@@ -30,4 +30,8 @@ export class AuthService {
       access_token: this.jwtService.sign(payload),
     };
   }
+  //토큰 디코딩 메서드 추가
+  decodeToken(token: string): any {
+    return this.jwtService.decode(token);
+  }
 }

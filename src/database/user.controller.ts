@@ -1,5 +1,4 @@
 // src/users/users.controller.ts
-
 import {
   Controller,
   Get,
@@ -9,13 +8,14 @@ import {
   Delete,
   Put,
   UseGuards,
-  Req,
+  Request,
 } from '@nestjs/common';
 import { UsersService } from './user.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { User } from './user.entity';
 import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
+import { BlacklistGuard } from 'src/auth/blacklist.guard';
 
 @Controller('users')
 export class UsersController {
@@ -43,9 +43,9 @@ export class UsersController {
   remove(@Param('id') id: number): Promise<void> {
     return this.usersService.remove(id);
   }
-  @UseGuards(JwtAuthGuard)
+  @UseGuards(JwtAuthGuard, BlacklistGuard)
   @Get('profile')
-  getProfile(@Req() req) {
+  getProfile(@Request() req) {
     return req.user;
   }
 }
