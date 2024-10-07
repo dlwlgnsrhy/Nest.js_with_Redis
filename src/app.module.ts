@@ -1,15 +1,15 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { validationSchema } from './config/validation.schema';
-import configuration from './config/configuration';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { RedisProvider } from './redis.providers';
+import { validationSchema } from '../src/config/validation.schema';
+import configuration from '../src/config/configuration';
+import { AppController } from '../src/app.controller';
+import { AppService } from '../src/app.service';
+import { RedisProvider } from '../src/redis.providers';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { User } from './database/user.entity';
-import { UserModule } from './database/user.module';
-import { RedisModule } from './redis/redis.module';
-import { AuthModule } from './auth/auth.module';
+import { User } from '../src/database/user.entity';
+import { UserModule } from '../src/database/user.module';
+import { RedisModule } from '../src/redis/redis.module';
+import { AuthModule } from '../src/auth/auth.module';
 
 @Module({
   imports: [

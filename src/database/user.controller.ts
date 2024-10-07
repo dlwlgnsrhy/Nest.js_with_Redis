@@ -10,12 +10,12 @@ import {
   UseGuards,
   Request,
 } from '@nestjs/common';
-import { UsersService } from './user.service';
-import { CreateUserDto } from './dto/create-user.dto';
-import { UpdateUserDto } from './dto/update-user.dto';
-import { User } from './user.entity';
-import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
-import { BlacklistGuard } from 'src/auth/blacklist.guard';
+import { UsersService } from '../database/user.service';
+import { CreateUserDto } from '../database/dto/create-user.dto';
+import { UpdateUserDto } from '../database/dto/update-user.dto';
+import { User } from '../database/user.entity';
+import { JwtAuthGuard } from '../auth/jwt-auth.guard';
+import { BlacklistGuard } from '../auth/blacklist.guard';
 
 @Controller('users')
 export class UsersController {

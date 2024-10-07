@@ -17,4 +17,7 @@ export class AppService {
   async getValue(key: string): Promise<string | null> {
     return await this.redisClient.get(key);
   }
+  async getHello(key: string) {
+    return await this.redisClient.get(key);
+  }
 }

@@ -1,5 +1,5 @@
 import { Controller, Get, Query } from '@nestjs/common';
-import { AppService } from './app.service';
+import { AppService } from '../src/app.service';
 
 @Controller()
 export class AppController {
@@ -15,5 +15,9 @@ export class AppController {
   async getValue(@Query('key') key: string) {
     const value = await this.appService.getValue(key);
     return `Value for key "${key}" is "${value}"`;
+  }
+  @Get()
+  getHello(): string {
+    return 'Hello World';
   }
 }
